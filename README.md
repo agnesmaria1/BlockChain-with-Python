@@ -42,11 +42,22 @@ import hashlib
 
 ## Usage
 
-To use this application simply clone the repository and run the **app.py** with:
+To use this application simply clone the repository and run the **pychain.py** with:
 
 ```python
-  app.py
+  pychain.py
 ```
+### How to run it locally using following commands
+```
+pip install streamlit
+```
+from your local terminal clone the repo then type
+```
+streamlit run pychain.py
+```
+
+<img width="1438" alt="stapp" src="https://user-images.githubusercontent.com/105394703/195165952-da0378a7-fd42-4c2e-b978-719cb54479d4.png">
+
 
 ---
 

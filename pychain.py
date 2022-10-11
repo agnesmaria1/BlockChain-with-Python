@@ -4,21 +4,21 @@
 # Challenge, which already contains the basic `PyChain` ledger structure that
 # you created throughout the module:
 
-# Step 1: Create a Record Data Class
+# Create a Record Data Class
 # * Create a new data class named `Record`. This class will serve as the
 # blueprint for the financial transaction records that the blocks of the ledger
 # will store.
 
-# Step 2: Modify the Existing Block Data Class to Store Record Data
+# Modify the Existing Block Data Class to Store Record Data
 # * Change the existing `Block` data class by replacing the generic `data`
 # attribute with a `record` attribute that’s of type `Record`.
 
-# Step 3: Add Relevant User Inputs to the Streamlit Interface
+# Add Relevant User Inputs to the Streamlit Interface
 # * Create additional user input areas in the Streamlit application. These
 # input areas should collect the relevant information for each financial record
 # that you’ll store in the `PyChain` ledger.
 
-# Step 4: Test the PyChain Ledger by Storing Records
+# Test the PyChain Ledger by Storing Records
 # * Test your complete `PyChain` ledger.
 
 ################################################################################
@@ -32,7 +32,6 @@ import pandas as pd
 import hashlib
 
 ################################################################################
-# Step 1:
 # Create a Record Data Class
 
 # Define a new Python data class named `Record`. Give this new class a
@@ -47,7 +46,6 @@ import hashlib
 # Note that you’ll use this new `Record` class as the data type of your `record` attribute in the next section.
 
 
-# @TODO
 # Create a Record Data Class that consists of the `sender`, `receiver`, and
 # `amount` attributes
 @dataclass
@@ -58,7 +56,6 @@ class Record:
 
 
 ################################################################################
-# Step 2:
 # Modify the Existing Block Data Class to Store Record Data
 
 # Rename the `data` attribute in your `Block` class to `record`, and then set
@@ -71,7 +68,6 @@ class Record:
 @dataclass
 class Block:
 
-    # @TODO
     # Rename the `data` attribute to `record`, and set the data type to `Record`
     record: Record
 
@@ -156,7 +152,6 @@ st.markdown("## Store a Transaction Record in the PyChain")
 pychain = setup()
 
 ################################################################################
-# Step 3:
 # Add Relevant User Inputs to the Streamlit Interface
 
 # Code additional input areas for the user interface of your Streamlit
@@ -169,32 +164,27 @@ pychain = setup()
 # 4. Add an input area where you can get a value for `amount` from the user.
 # 5. As part of the Add Block button functionality, update `new_block` so that `Block` consists of an attribute named `record`, which is set equal to a `Record` that contains the `sender`, `receiver`, and `amount` values. The updated `Block`should also include the attributes for `creator_id` and `prev_hash`.
 
-# @TODO:
 # Delete the `input_data` variable from the Streamlit interface.
-input_data = st.text_input("Block Data")
+#input_data = st.text_input("Block Data")
 
-# @TODO:
 # Add an input area where you can get a value for `sender` from the user.
-sender = str(st.text_area("Enter Data")).encode()
+sender = st.text_input("Sender Data")
 
-# @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-receiver = str(st.text_area("Enter Data")).encode()
+receiver = st.text_input("Receiver Data")
 
-# @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-amount = float(st.text_area("Enter Amount")).encode()
+amount = st.text_input("Sender Amount")
 
 if st.button("Add Block"):
     prev_block = pychain.chain[-1]
     prev_block_hash = prev_block.hash_block()
 
-    # @TODO
     # Update `new_block` so that `Block` consists of an attribute named `record`
     # which is set equal to a `Record` that contains the `sender`, `receiver`,
     # and `amount` values
     new_block = Block(
-        data=input_data,
+        record=Record(sender, receiver, amount),
         creator_id=42,
         prev_hash=prev_block_hash
     )
@@ -224,7 +214,6 @@ if st.button("Validate Chain"):
     st.write(pychain.is_valid())
 
 ################################################################################
-# Step 4:
 # Test the PyChain Ledger by Storing Records
 
 # Test your complete `PyChain` ledger and user interface by running your
