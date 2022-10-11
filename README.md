@@ -59,6 +59,9 @@ streamlit run pychain.py
 <img width="1438" alt="stapp" src="https://user-images.githubusercontent.com/105394703/195165952-da0378a7-fd42-4c2e-b978-719cb54479d4.png">
 
 
+<img width="1440" alt="stapp2" src="https://user-images.githubusercontent.com/105394703/195168728-18bea325-df8f-404c-9305-c0e0873792a3.png">
+
+
 ---
 
 ## Contributors
